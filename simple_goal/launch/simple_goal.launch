@@ -1,0 +1,10 @@
+<launch>
+
+  <node  pkg="simple_goal" name="simple_goal" type="simple_goal.py" output="screen">
+  </node>
+
+  <include file="$(find px4)/launch/mavros_posix_sitl.launch">
+  </include>
+
+</launch>
+

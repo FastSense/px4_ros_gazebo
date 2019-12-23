@@ -16,15 +16,12 @@ ros_packets_dir=$catkin_dir/src - смирись и прими, что у теб
 mkdir $FASTSENSE_WORKSPACE_DIR/Firmware
 
 # create catkin workspace
-
 mkdir -p $ros_packets_dir
 cd $catkin_dir
+git clone git@github.com:FastSense/px4_ros_gazebo.git $ros_packets_src_dir
 
 ## Initialise wstool
 wstool init $ros_packets_dir # создаёт скрытые файлы для workspace
-
-cd $ros_packets_src_dir
-git clone git@github.com:FastSense/ros-packs-2.git .
 ```
 
 
@@ -36,7 +33,7 @@ git clone git@github.com:FastSense/ros-packs-2.git .
 * копирует скрипты из docker/ (локальная папка) в /src/scripts/ (внутри докера)
 
 ```bash
-docker build . -t px4_kinetic_img
+docker build . -t x_kinetic_img
 ```
 
 #### Запуск контейнера
@@ -56,7 +53,7 @@ docker/docker_x.sh
 ./docker/docker_x.sh arg1 arg2
 ```
 
-arg1 - имя образа (px4_kinetic_img)
+arg1 - имя образа (x_kinetic_img)
 arg2 - код команды для запуска
 
 arg2 = {make_firmware, bash}
@@ -71,8 +68,8 @@ bash			- установить переменные среды для ROS и за
 Примеры запуска контейнера:
 ```bash
 cd $FASTSENSE_WORKSPACE_DIR/catkin_ws/src
-./docker/docker_x.sh px4_kinetic_img make_firmware
-./docker/docker_x.sh px4_kinetic_img bash
+./docker/docker_x.sh x_kinetic_img make_firmware
+./docker/docker_x.sh x_kinetic_img bash
 ```
 
 внутри терминала bash, запущенного в контейнере:

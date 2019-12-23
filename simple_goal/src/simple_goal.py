@@ -166,8 +166,8 @@ class MavrosOffboardPosctlTest(MavrosTestCommon):
         self.set_arm(True, 5)
 
         rospy.loginfo("run mission")
-        positions = ((0, 0, 0), (50, 50, 20), (50, -50, 20), (-50, -50, 20),
-                     (0, 0, 20))
+        positions = ((0, 0, 0), (5, 5, 2), (5, -5, 2), (-5, -5, 2),
+                     (0, 0, 2))
 
         for i in xrange(len(positions)):
             self.reach_position(positions[i][0], positions[i][1],
